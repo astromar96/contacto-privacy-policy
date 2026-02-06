@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Privacy Policy</title>
+    <title>CallMinder (Contacto) - Privacy Policy</title>
     <style>
         * {
             margin: 0;
@@ -19,12 +19,13 @@
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             padding: 40px;
+            margin-bottom: 40px;
         }
         h1 {
             color: #667eea;
@@ -34,8 +35,9 @@
         .app-name {
             color: #764ba2;
             font-weight: 600;
+            font-size: 1.2em;
         }
-        .last-updated {
+        .version-info {
             color: #888;
             font-size: 0.9em;
             margin-bottom: 30px;
@@ -46,6 +48,19 @@
             margin-bottom: 15px;
             padding-bottom: 8px;
             border-bottom: 2px solid #667eea;
+            font-size: 1.6em;
+        }
+        h3 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        h4 {
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 1.1em;
         }
         p {
             margin-bottom: 15px;
@@ -64,11 +79,44 @@
             margin: 20px 0;
             border-left: 4px solid #667eea;
         }
+        .warning {
+            background: linear-gradient(135deg, #ff634720 0%, #ff634720 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #ff6347;
+        }
+        .info-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid #667eea;
+        }
         .contact {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
             margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background: #f8f9fa;
         }
         a {
             color: #667eea;
@@ -77,6 +125,33 @@
         a:hover {
             text-decoration: underline;
         }
+        .toc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #667eea;
+            font-weight: 500;
+        }
+        strong {
+            color: #555;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
         @media (max-width: 600px) {
             .container {
                 padding: 25px;
@@ -84,85 +159,592 @@
             h1 {
                 font-size: 1.8em;
             }
+            h2 {
+                font-size: 1.3em;
+            }
+            table {
+                font-size: 0.85em;
+            }
+            th, td {
+                padding: 8px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="app-name">Contacto - Smart Call Tracker</p>
-        <p class="last-updated">Last updated: December 20, 2025</p>
+        <p class="app-name">CallMinder (Contacto)</p>
+        <p class="version-info">
+            <strong>Last Updated:</strong> February 6, 2026<br>
+            <strong>Version:</strong> 2.0 (Default Dialer Update)
+        </p>
 
         <div class="highlight">
-            <strong>Your privacy is our priority.</strong> Contacto is designed with a privacy-first approach. All your data stays on your device and is never uploaded to external servers.
+            <strong>🔒 Your Privacy Matters</strong><br>
+            CallMinder is committed to transparency. Most of your data stays on your device, but we use error tracking services that collect technical information. This policy explains everything in detail.
         </div>
 
-        <h2>Overview</h2>
-        <p>Contacto ("we", "our", or "the app") is a call tracking and contact management application. This Privacy Policy explains how we handle your information when you use our mobile application.</p>
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>📋 Table of Contents</h3>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#collect">1. Information We Collect</a></li>
+                <li><a href="#use">2. How We Use Your Information</a></li>
+                <li><a href="#sharing">3. Data Sharing & Third Parties</a></li>
+                <li><a href="#storage">4. Data Storage & Security</a></li>
+                <li><a href="#rights">5. Your Privacy Rights & Controls</a></li>
+                <li><a href="#children">6. Children's Privacy</a></li>
+                <li><a href="#international">7. International Data Transfers</a></li>
+                <li><a href="#legal">8. Your Legal Rights</a></li>
+                <li><a href="#retention">9. Data Retention</a></li>
+                <li><a href="#changes">10. Changes to This Privacy Policy</a></li>
+                <li><a href="#contact">11. Contact Information</a></li>
+                <li><a href="#technical">12. Technical Details</a></li>
+            </ul>
+        </div>
 
-        <h2>Information We Access</h2>
-        <p>To provide our services, Contacto requires access to:</p>
+        <h2 id="intro">Introduction</h2>
+        <p>CallMinder ("we," "our," or "the app") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application.</p>
+        <p>By using CallMinder, you agree to the collection and use of information in accordance with this policy. If you do not agree with our policies and practices, please do not use the app.</p>
+
+        <h2 id="collect">1. Information We Collect</h2>
+
+        <h3>1.1 Call Information</h3>
+        <p>When you use CallMinder, we access and process the following call-related data:</p>
         <ul>
-            <li><strong>Call Logs:</strong> We read your device's call history to display call statistics, track call patterns, and provide insights about your calling habits.</li>
-            <li><strong>Contacts:</strong> We access your contacts to display caller names, allow you to tag and organize contacts, and provide contact-related features.</li>
-            <li><strong>Notifications:</strong> We may send local notifications to remind you about contacts you haven't called in a while.</li>
+            <li><strong>Phone Numbers:</strong> Numbers you call, receive calls from, or have in your call history (incoming, outgoing, missed, rejected, blocked)</li>
+            <li><strong>Call Duration:</strong> Length of each call in seconds</li>
+            <li><strong>Call Timestamps:</strong> Date and time when calls occurred</li>
+            <li><strong>Call Type:</strong> Classification of calls (incoming, outgoing, missed, voicemail, rejected, blocked, answered externally)</li>
+            <li><strong>SIM Card Information:</strong> Which SIM card was used for each call (for multi-SIM devices)</li>
         </ul>
 
-        <h2>How Your Data Is Stored</h2>
+        <div class="warning">
+            <strong>⚠️ Important: Default Dialer Access</strong><br>
+            If you set CallMinder as your default phone app, the app will have access to <strong>ALL</strong> incoming and outgoing calls on your device, including calls made by other apps or the system dialer. This is necessary to provide features like custom incoming call screens and comprehensive call analytics.
+        </div>
+
+        <div class="info-box">
+            <strong>💾 Data Storage:</strong> All call log data is stored locally on your device and is never transmitted to external servers.
+        </div>
+
+        <h3>1.2 Contact Information</h3>
+        <p>To enhance your calling experience, CallMinder accesses:</p>
+        <ul>
+            <li><strong>Contact Names:</strong> Display names from your device address book</li>
+            <li><strong>Phone Numbers:</strong> Associated phone numbers for each contact</li>
+            <li><strong>Contact Photos:</strong> Photo URIs (references to photos, not the actual photo data)</li>
+            <li><strong>Contact IDs:</strong> Internal identifiers used by Android</li>
+        </ul>
+        <p><strong>Scope:</strong> The app reads all device contacts and maintains an in-memory cache of up to 1,000 contacts for quick lookup.</p>
+        <div class="info-box">
+            <strong>💾 Data Storage:</strong> Contact information is cached in device memory during app use and is never transmitted to external servers.
+        </div>
+
+        <h3>1.3 SMS Messages</h3>
+        <p>When you use the quick reply feature during calls:</p>
+        <ul>
+            <li><strong>Outgoing SMS:</strong> We send SMS messages on your behalf</li>
+            <li><strong>Message Content:</strong> Only predefined template messages (e.g., "Can't talk right now. I'll call you back," "I'm in a meeting")</li>
+            <li><strong>Recipient Numbers:</strong> Phone numbers you choose to send quick replies to</li>
+        </ul>
+        <p><strong>User Control:</strong> You must grant SMS permission and manually select when to send messages. We do not read or access your incoming SMS messages.</p>
+
+        <h3>1.4 Device & Technical Information</h3>
+        <h4>Google Advertising ID</h4>
+        <p>We collect your Google Advertising ID as required by our analytics SDK dependencies for app performance monitoring and crash reporting. <strong>We do not use this identifier for serving advertisements or personalized marketing.</strong></p>
+
+        <h4>Audio Settings</h4>
+        <ul>
+            <li>Device ringtone preferences</li>
+            <li>System audio settings (to manage call audio)</li>
+            <li>Default ringtone URI (read-only access)</li>
+        </ul>
+
+        <h4>Phone State</h4>
+        <ul>
+            <li>Real-time phone call state (ringing, active, idle)</li>
+            <li>Phone account IDs (for SIM detection)</li>
+        </ul>
+
+        <h3>1.5 Error Tracking & Analytics Data (Sentry)</h3>
+        <div class="warning">
+            <strong>⚠️ Important: Error Tracking Service</strong><br>
+            To improve app quality and fix bugs, we use Sentry.io, a third-party error tracking service. This service collects technical information including your IP address.
+        </div>
+
+        <h4>Automatically Collected Data:</h4>
+        <ul>
+            <li><strong>IP Addresses:</strong> Your device's IP address is automatically logged when errors are reported</li>
+            <li><strong>Device Information:</strong> Model, OS version, app version, device identifiers</li>
+            <li><strong>Error Logs:</strong> Stack traces and error messages (may include phone numbers or contact names if visible during the error)</li>
+            <li><strong>Crash Reports:</strong> Technical details about app crashes</li>
+        </ul>
+
+        <h4>Session Recordings:</h4>
+        <p>We record user interactions in the following scenarios:</p>
+        <ul>
+            <li><strong>10% of normal app sessions</strong> (randomly selected)</li>
+            <li><strong>100% of sessions where errors occur</strong></li>
+        </ul>
+        <p>Session recordings may capture:</p>
+        <ul>
+            <li>Screen taps, gestures, and navigation patterns</li>
+            <li>Visual content displayed on screen (may include phone numbers, contact names, and call history)</li>
+            <li>User interaction timing and patterns</li>
+        </ul>
+
         <div class="highlight">
-            <strong>100% Local Storage:</strong> All data processed by Contacto is stored exclusively on your device. We do not have servers that collect, store, or process your personal information.
+            <strong>🎯 Purpose:</strong> Session recordings are used exclusively for debugging and improving app performance. We do not use session recordings for advertising, marketing, or any purpose other than technical troubleshooting.
         </div>
+
+        <div class="info-box">
+            <strong>✅ User Control:</strong> You can opt-out of error tracking and session recording at any time in <strong>Settings → Privacy → Error Reporting</strong>. When disabled, no data will be sent to Sentry.
+        </div>
+
+        <h2 id="use">2. How We Use Your Information</h2>
+
+        <h3>Call & Contact Management</h3>
         <ul>
-            <li>Call statistics and history remain on your device</li>
-            <li>Contact tags and notes are stored locally</li>
-            <li>App preferences and settings are saved on your device</li>
-            <li>No data is transmitted to external servers</li>
+            <li>Display contact names with incoming and outgoing calls</li>
+            <li>Enable T9 search functionality in the dialer</li>
+            <li>Provide call history filtering, sorting, and search</li>
+            <li>Generate call analytics and statistics</li>
+            <li>Support features like call reminders, tags, and notes</li>
         </ul>
 
-        <h2>Data We Do NOT Collect</h2>
-        <p>We want to be clear about what we don't do:</p>
+        <h3>Communication Features</h3>
         <ul>
-            <li>We do NOT upload your call logs to any server</li>
-            <li>We do NOT share your contacts with third parties</li>
-            <li>We do NOT track your location</li>
-            <li>We do NOT sell any personal information</li>
-            <li>We do NOT use analytics that identify individual users</li>
+            <li>Send SMS quick replies during active calls</li>
+            <li>Add new contacts to your address book</li>
+            <li>Add phone numbers to existing contacts</li>
+            <li>Manage incoming calls when app is set as default dialer</li>
+            <li>Play custom ringtones for incoming calls</li>
         </ul>
 
-        <h2>Third-Party Services</h2>
-        <p>Contacto may use the following third-party services:</p>
+        <h3>App Improvement & Error Tracking</h3>
         <ul>
-            <li><strong>Google Play Services:</strong> Required for app distribution and updates on Android devices.</li>
-            <li><strong>Crash Reporting:</strong> Anonymous crash reports may be collected to help us improve app stability. These reports do not contain personal information.</li>
+            <li>Monitor app performance and stability</li>
+            <li>Debug technical issues using error logs</li>
+            <li>Identify and fix crashes</li>
+            <li>Improve user experience based on interaction patterns</li>
+            <li>Respond to user feedback and feature requests</li>
+        </ul>
+        <p><strong>Note:</strong> Error tracking data sent to Sentry may contain phone numbers or contact names if they were visible on screen when an error occurred.</p>
+
+        <h3>Voice Notes</h3>
+        <ul>
+            <li>Record and store voice notes attached to calls (stored locally only)</li>
+            <li><strong>Note:</strong> We do not record phone calls. The RECORD_AUDIO permission is used exclusively for the voice notes feature.</li>
         </ul>
 
-        <h2>Data Security</h2>
-        <p>Since all data is stored locally on your device, the security of your data depends on your device's security measures. We recommend:</p>
+        <h2 id="sharing">3. Data Sharing & Third Parties</h2>
+
+        <h3>Sentry (Error Tracking Service)</h3>
+        <p>We share limited technical and usage data with Sentry.io for error monitoring:</p>
         <ul>
-            <li>Using a screen lock (PIN, pattern, fingerprint, or face recognition)</li>
-            <li>Keeping your device's operating system updated</li>
-            <li>Being cautious about which apps you install</li>
+            <li><strong>Company:</strong> Sentry.io (Functional Software, Inc.)</li>
+            <li><strong>Server Location:</strong> Germany (<code>o4510541538066432.ingest.de.sentry.io</code>)</li>
+            <li><strong>Data Sent:</strong>
+                <ul>
+                    <li>User IP addresses</li>
+                    <li>Device identifiers and technical specifications</li>
+                    <li>Error logs (may contain phone numbers or contact names)</li>
+                    <li>Session recordings (screen interactions and visual content)</li>
+                    <li>User feedback submitted through the app</li>
+                </ul>
+            </li>
+            <li><strong>Purpose:</strong> Error monitoring, crash reporting, app performance improvement</li>
+            <li><strong>Data Retention:</strong> 90 days, then automatically deleted</li>
+            <li><strong>User Control:</strong> Opt-out via Settings → Privacy → Error Reporting</li>
+            <li><strong>Privacy Policy:</strong> <a href="https://sentry.io/privacy/" target="_blank">https://sentry.io/privacy/</a></li>
+            <li><strong>Data Processing Agreement:</strong> GDPR-compliant DPA in place</li>
         </ul>
 
-        <h2>Your Rights</h2>
-        <p>You have complete control over your data:</p>
+        <h3>Google Play Services</h3>
         <ul>
-            <li><strong>Access:</strong> All your data is visible within the app</li>
-            <li><strong>Deletion:</strong> Uninstalling the app removes all associated data</li>
-            <li><strong>Permissions:</strong> You can revoke app permissions at any time through your device settings</li>
+            <li><strong>Advertising ID:</strong> Collected via Google Play Services as required by our analytics SDK dependencies</li>
+            <li><strong>Purpose:</strong> App analytics and error tracking infrastructure (not for serving advertisements)</li>
+            <li><strong>User Control:</strong> You can reset your Advertising ID in Android Settings → Google → Ads</li>
+            <li><strong>Data Sharing:</strong> May be shared with Google as part of Play Services infrastructure</li>
         </ul>
 
-        <h2>Children's Privacy</h2>
-        <p>Contacto is not intended for use by children under 13 years of age. We do not knowingly collect information from children under 13.</p>
+        <h3>What We DO NOT Share</h3>
+        <div class="highlight">
+            <ul>
+                <li>✅ <strong>Call Logs:</strong> Never transmitted to external servers (stored locally only)</li>
+                <li>✅ <strong>Contacts:</strong> Never transmitted to external servers (stored locally only)</li>
+                <li>✅ <strong>SMS Messages:</strong> Never transmitted to external servers (sent directly to recipients)</li>
+                <li>✅ <strong>Voice Notes:</strong> Never transmitted to external servers (stored locally only)</li>
+                <li>✅ <strong>Tags & Notes:</strong> Never transmitted to external servers (stored locally only)</li>
+            </ul>
+        </div>
+        <p><strong>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</strong></p>
 
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated "Last updated" date. We encourage you to review this policy periodically.</p>
+        <h2 id="storage">4. Data Storage & Security</h2>
 
+        <h3>Local Storage</h3>
+        <p>All core app data is stored locally on your device:</p>
+        <ul>
+            <li><strong>Call logs, tags, notes, reminders:</strong> Stored using AsyncStorage (encrypted at Android OS level)</li>
+            <li><strong>Voice notes:</strong> Stored in device file system (private app directory)</li>
+            <li><strong>Contact cache:</strong> Maintained in device memory (up to 1,000 contacts, cleared when app closes)</li>
+        </ul>
+
+        <h3>External Data Transmission</h3>
+        <p>The only data transmitted externally is error tracking and analytics data sent to Sentry.io:</p>
+        <ul>
+            <li>Transmission uses HTTPS encryption</li>
+            <li>Sent to Germany-based servers (GDPR-compliant)</li>
+            <li>Retained for 90 days, then automatically deleted</li>
+            <li>Can be disabled via Settings → Privacy → Error Reporting</li>
+        </ul>
+
+        <h3>Security Measures</h3>
+        <h4>Technical Safeguards:</h4>
+        <ul>
+            <li><strong>IP Address Leak Prevention:</strong> Validates phone numbers to reject private IP address patterns (192.168.x.x, 10.x.x.x, 172.16.x.x)</li>
+            <li><strong>Phone Number Sanitization:</strong> Removes all special characters before initiating calls</li>
+            <li><strong>Emergency Call Bypass:</strong> Routes emergency numbers (911, 999, 112, etc.) directly through system dialer</li>
+            <li><strong>HTTPS Encryption:</strong> All external data transmission uses encrypted connections</li>
+            <li><strong>OS-Level Encryption:</strong> Local data storage uses Android's built-in encryption</li>
+        </ul>
+
+        <h4>Permission Validation:</h4>
+        <ul>
+            <li>All sensitive permissions are requested at runtime with clear explanations</li>
+            <li>We check permissions before accessing sensitive features</li>
+            <li>Graceful feature degradation if permissions are denied</li>
+        </ul>
+
+        <h4>Read-Only Contact Access:</h4>
+        <ul>
+            <li>We only read contact information; we never modify existing contacts</li>
+            <li>Contact creation/editing uses Android's native contact screens (under your control)</li>
+        </ul>
+
+        <h2 id="rights">5. Your Privacy Rights & Controls</h2>
+
+        <h3>Permission Management</h3>
+        <p>You have full control over app permissions:</p>
+        <ul>
+            <li><strong>Runtime Permissions:</strong> All sensitive permissions (calls, contacts, SMS, audio) are requested when first needed</li>
+            <li><strong>Revoke Permissions:</strong> Disable any permission in Android Settings → Apps → CallMinder → Permissions</li>
+            <li><strong>Granular Control:</strong> Enable only the permissions needed for features you want to use</li>
+        </ul>
+
+        <h3>Default Dialer Role (Optional)</h3>
+        <p>Setting CallMinder as your default phone app is <strong>entirely optional</strong>:</p>
+        <div class="info-box">
+            <ul>
+                <li><strong>Grants Access To:</strong> ALL incoming and outgoing calls system-wide (not just app-initiated calls)</li>
+                <li><strong>Enables Features:</strong> Custom incoming call screen, system-wide call analytics, quick actions during any call</li>
+                <li><strong>How to Enable:</strong> Settings → Default apps → Phone app → CallMinder</li>
+                <li><strong>How to Disable:</strong> Settings → Default apps → Phone app → Select another dialer</li>
+                <li><strong>No Penalty:</strong> All core features work without being the default dialer</li>
+            </ul>
+        </div>
+
+        <h3>SMS Quick Replies</h3>
+        <ul>
+            <li>Requires <code>SEND_SMS</code> permission</li>
+            <li>Only sends messages when you explicitly tap "Send"</li>
+            <li>Uses predefined template messages (no free-form SMS sending)</li>
+            <li>Permission can be revoked in Android settings</li>
+        </ul>
+
+        <h3>Error Tracking Opt-Out</h3>
+        <p>You can disable error tracking and session recording:</p>
+        <ol>
+            <li>Open CallMinder</li>
+            <li>Go to <strong>Settings → Privacy → Error Reporting</strong></li>
+            <li>Toggle off "Error Reporting & Analytics"</li>
+        </ol>
+        <p>When disabled:</p>
+        <ul>
+            <li>✅ No error logs sent to Sentry</li>
+            <li>✅ No session recordings captured</li>
+            <li>✅ No IP addresses transmitted</li>
+            <li>⚠️ App stability monitoring disabled</li>
+        </ul>
+        <p><strong>Note:</strong> Disabling error tracking may make it harder for us to diagnose and fix bugs you encounter.</p>
+
+        <h3>Data Deletion</h3>
+        <ul>
+            <li><strong>Local Data:</strong> Uninstalling the app permanently deletes all locally stored data (call logs, notes, tags, voice recordings)</li>
+            <li><strong>Sentry Data:</strong> Automatically deleted after 90 days of retention</li>
+            <li><strong>Request Deletion:</strong> Contact us at <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a> to request immediate deletion of error tracking data</li>
+        </ul>
+
+        <h2 id="children">6. Children's Privacy</h2>
+        <p>CallMinder is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+        <ul>
+            <li>If we become aware that a child under 13 has provided us with personal information, we will delete such information immediately</li>
+            <li>Parents or guardians who believe their child has provided information to us should contact us at <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a></li>
+            <li>If you are under 13, please do not use CallMinder or provide any information through the app</li>
+        </ul>
+
+        <h2 id="international">7. International Data Transfers</h2>
+        <h3>Sentry Data (Germany)</h3>
+        <p>Error tracking data is transmitted to Sentry.io servers located in Germany:</p>
+        <ul>
+            <li><strong>Server Location:</strong> European Economic Area (EEA)</li>
+            <li><strong>Compliance:</strong> GDPR-compliant data processing agreements in place</li>
+            <li><strong>Data Protection:</strong> EU data protection standards apply</li>
+            <li><strong>Transfer Mechanism:</strong> Standard Contractual Clauses (SCCs) for international transfers</li>
+        </ul>
+
+        <h3>Google Play Services</h3>
+        <p>Advertising ID and analytics data processed by Google may be transferred internationally according to Google's privacy policies:</p>
+        <ul>
+            <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+        </ul>
+
+        <h2 id="legal">8. Your Legal Rights</h2>
+
+        <h3>Under GDPR (European Union / EEA Users)</h3>
+        <p>If you are located in the EU or EEA, you have the following rights:</p>
+        <ul>
+            <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you (Sentry data only)</li>
+            <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete data</li>
+            <li><strong>Right to Erasure</strong> ("Right to be Forgotten"): Request deletion of your personal data</li>
+            <li><strong>Right to Restrict Processing:</strong> Request that we limit how we use your data</li>
+            <li><strong>Right to Data Portability:</strong> Request a copy of your data in a machine-readable format</li>
+            <li><strong>Right to Object:</strong> Object to our processing of your personal data</li>
+            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for data processing at any time (via Settings → Privacy → Error Reporting)</li>
+        </ul>
+        <p><strong>To exercise these rights</strong>, contact us at <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a> with the subject line "GDPR Data Request."</p>
+
+        <h3>Under CCPA (California Residents)</h3>
+        <p>If you are a California resident, you have the following rights:</p>
+        <ul>
+            <li><strong>Right to Know:</strong> Request information about personal data we collect, use, and disclose</li>
+            <li><strong>Right to Delete:</strong> Request deletion of your personal information</li>
+            <li><strong>Right to Opt-Out:</strong> Opt-out of the "sale" of personal information (note: <strong>we do not sell personal information</strong>)</li>
+            <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your privacy rights</li>
+        </ul>
+        <p><strong>To exercise these rights</strong>, contact us at <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a> with the subject line "CCPA Data Request."</p>
+
+        <h3>For All Users</h3>
+        <p>Regardless of location, you can:</p>
+        <ul>
+            <li><strong>Revoke Permissions:</strong> In Android Settings → Apps → CallMinder → Permissions</li>
+            <li><strong>Opt-Out of Error Tracking:</strong> In Settings → Privacy → Error Reporting</li>
+            <li><strong>Delete Local Data:</strong> By uninstalling the app</li>
+            <li><strong>Reset Advertising ID:</strong> In Android Settings → Google → Ads</li>
+            <li><strong>Contact Us:</strong> For any privacy concerns or questions</li>
+        </ul>
+
+        <h2 id="retention">9. Data Retention</h2>
+
+        <h3>Local Data (On Your Device)</h3>
+        <ul>
+            <li><strong>Call Logs, Tags, Notes, Voice Recordings:</strong> Retained until you delete them manually or uninstall the app</li>
+            <li><strong>Contact Cache:</strong> Cleared when app is closed (not permanently stored)</li>
+        </ul>
+
+        <h3>External Data (Sentry)</h3>
+        <ul>
+            <li><strong>Error Logs & Session Recordings:</strong> Retained for <strong>90 days</strong>, then automatically deleted</li>
+            <li><strong>User Feedback:</strong> Retained for <strong>90 days</strong>, then automatically deleted</li>
+        </ul>
+
+        <h3>Advertising ID</h3>
+        <ul>
+            <li><strong>Google Advertising ID:</strong> Processed by Google Play Services according to Google's retention policies</li>
+        </ul>
+
+        <h2 id="changes">10. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, app features, or legal requirements.</p>
+
+        <h3>How We Notify You:</h3>
+        <ul>
+            <li><strong>App Update Notes:</strong> Major changes will be highlighted in Google Play Store update descriptions</li>
+            <li><strong>In-App Notification:</strong> Significant privacy changes may trigger an in-app notice on first launch after update</li>
+            <li><strong>Effective Date:</strong> Always displayed at the top of this document ("Last Updated" date)</li>
+        </ul>
+
+        <h3>Your Acceptance:</h3>
+        <ul>
+            <li>Continued use of CallMinder after privacy policy changes constitutes acceptance of the updated policy</li>
+            <li>If you do not agree with changes, you should stop using the app and uninstall it</li>
+        </ul>
+
+        <h3>Policy Location:</h3>
+        <ul>
+            <li>This policy is always available at: <strong><a href="https://astromar96.github.io/contacto-privacy-policy/">https://astromar96.github.io/contacto-privacy-policy/</a></strong></li>
+            <li>Also accessible within the app: <strong>More → Privacy Policy</strong></li>
+        </ul>
+
+        <h2 id="contact">11. Contact Information</h2>
         <div class="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy or our practices, please contact us at:</p>
-            <p><a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a></p>
+            <p>If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a><br>
+                <strong>Subject Lines:</strong><br>
+                - For general privacy questions: "Privacy Inquiry"<br>
+                - For GDPR requests: "GDPR Data Request"<br>
+                - For CCPA requests: "CCPA Data Request"<br>
+                - For data deletion: "Delete My Data"
+            </p>
+            <p><strong>Response Time:</strong> We aim to respond to all privacy inquiries within 7 business days.</p>
         </div>
+
+        <h2 id="technical">12. Technical Details & Transparency</h2>
+
+        <h3>Permissions Summary</h3>
+        <p>Here's a complete list of sensitive permissions CallMinder requests and why:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Permission</th>
+                    <th>Purpose</th>
+                    <th>When Requested</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>CALL_PHONE</code></td>
+                    <td>Make phone calls directly from the app</td>
+                    <td>First time you tap a number to call</td>
+                </tr>
+                <tr>
+                    <td><code>ANSWER_PHONE_CALLS</code></td>
+                    <td>Answer incoming calls programmatically</td>
+                    <td>When you enable advanced call features</td>
+                </tr>
+                <tr>
+                    <td><code>MANAGE_OWN_CALLS</code></td>
+                    <td>Manage call states and display in-call UI</td>
+                    <td>First call placed through app</td>
+                </tr>
+                <tr>
+                    <td><code>READ_CALL_LOG</code></td>
+                    <td>Access call history for display and analytics</td>
+                    <td>App first launch</td>
+                </tr>
+                <tr>
+                    <td><code>READ_PHONE_STATE</code></td>
+                    <td>Monitor phone state changes</td>
+                    <td>When dialer features are used</td>
+                </tr>
+                <tr>
+                    <td><code>SEND_SMS</code></td>
+                    <td>Send quick reply text messages</td>
+                    <td>First time you use quick reply feature</td>
+                </tr>
+                <tr>
+                    <td><code>READ_CONTACTS</code></td>
+                    <td>Display contact names with phone numbers</td>
+                    <td>App first launch</td>
+                </tr>
+                <tr>
+                    <td><code>READ_EXTERNAL_STORAGE</code></td>
+                    <td>Access system ringtones</td>
+                    <td>First time ringtone feature is used</td>
+                </tr>
+                <tr>
+                    <td><code>WRITE_EXTERNAL_STORAGE</code></td>
+                    <td>Store voice notes</td>
+                    <td>First time you record a voice note</td>
+                </tr>
+                <tr>
+                    <td><code>RECORD_AUDIO</code></td>
+                    <td>Record voice notes (NOT for call recording)</td>
+                    <td>First time you record a voice note</td>
+                </tr>
+                <tr>
+                    <td><code>MODIFY_AUDIO_SETTINGS</code></td>
+                    <td>Control call audio and ringtones</td>
+                    <td>During active calls</td>
+                </tr>
+                <tr>
+                    <td><code>AD_ID</code></td>
+                    <td>Access Advertising ID (for analytics SDK)</td>
+                    <td>Automatically (no user prompt)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Session Recording Details</h3>
+        <h4>What IS Recorded:</h4>
+        <ul>
+            <li>Button taps and gestures (location, timing)</li>
+            <li>Screen navigation (which screens you visit)</li>
+            <li>Visual content on screen (may include phone numbers and contact names if visible)</li>
+            <li>App performance metrics (load times, responsiveness)</li>
+        </ul>
+
+        <h4>What IS NOT Recorded:</h4>
+        <ul>
+            <li>Text you type (passwords, messages)</li>
+            <li>Content outside the app (other apps, home screen, notifications)</li>
+            <li>Audio from calls or voice notes</li>
+            <li>Photos or media files</li>
+            <li>SMS message content (except template previews)</li>
+        </ul>
+
+        <h4>Recording Rate:</h4>
+        <ul>
+            <li>10% of normal sessions (randomly selected)</li>
+            <li>100% of sessions where errors/crashes occur</li>
+            <li>Can be disabled: Settings → Privacy → Error Reporting</li>
+        </ul>
+
+        <h3>Security & Compliance</h3>
+        <ul>
+            <li><strong>HTTPS Encryption:</strong> All external data transmission uses TLS 1.2 or higher</li>
+            <li><strong>GDPR Compliant:</strong> Data processing agreements in place with Sentry.io</li>
+            <li><strong>CCPA Compliant:</strong> We do not sell personal information</li>
+            <li><strong>COPPA Compliant:</strong> No data collection from children under 13</li>
+            <li><strong>Android Security:</strong> Local data encrypted at OS level (Android 6.0+)</li>
+        </ul>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
+
+        <h3>Privacy Policy Change Log</h3>
+
+        <h4>Version 2.0 - February 6, 2026 (Default Dialer Update)</h4>
+        <p><strong>Major Changes:</strong></p>
+        <ul>
+            <li>✅ Added default dialer role permissions and capabilities</li>
+            <li>✅ Disclosed Sentry error tracking with session recording (10%/100% capture rates)</li>
+            <li>✅ Added SMS quick reply functionality</li>
+            <li>✅ Disclosed Google Advertising ID collection (analytics SDK requirement)</li>
+            <li>✅ Added IP address leak prevention security measure</li>
+            <li>✅ Added user opt-out controls for error tracking</li>
+            <li>✅ Clarified that RECORD_AUDIO is for voice notes only (not call recording)</li>
+            <li>✅ Added 90-day data retention period for Sentry data</li>
+            <li>✅ Added SIM card information collection for multi-SIM support</li>
+            <li>✅ Enhanced security measures documentation</li>
+        </ul>
+
+        <h4>Version 1.0 - December 20, 2025</h4>
+        <p><strong>Initial Release:</strong></p>
+        <ul>
+            <li>Basic call log access and display</li>
+            <li>Contact name enrichment</li>
+            <li>Local data storage</li>
+            <li>Voice notes feature</li>
+        </ul>
+
+        <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
+
+        <div class="highlight">
+            <p><strong>📱 Where to Find This Policy:</strong></p>
+            <ul>
+                <li>Online: <a href="https://astromar96.github.io/contacto-privacy-policy/">https://astromar96.github.io/contacto-privacy-policy/</a></li>
+                <li>In-App: More → Privacy Policy</li>
+            </ul>
+        </div>
+
+        <p style="text-align: center; color: #888; margin-top: 40px; font-size: 0.9em;">
+            <em>This privacy policy was generated to comply with GDPR, CCPA, COPPA, and Google Play Store requirements.<br>
+            Last reviewed and updated: February 6, 2026</em>
+        </p>
     </div>
 </body>
 </html>
