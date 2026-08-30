@@ -176,8 +176,8 @@
         <h1>Privacy Policy</h1>
         <p class="app-name">CallMinder (Contacto)</p>
         <p class="version-info">
-            <strong>Last Updated:</strong> February 6, 2026<br>
-            <strong>Version:</strong> 2.0 (Default Dialer Update)
+            <strong>Last Updated:</strong> August 30, 2026<br>
+            <strong>Version:</strong> 3.0 (Usage Statistics &amp; Disclosure Correction)
         </p>
 
         <div class="highlight">
@@ -253,8 +253,9 @@
         <p><strong>User Control:</strong> You must grant SMS permission and manually select when to send messages. We do not read or access your incoming SMS messages.</p>
 
         <h3>1.4 Device & Technical Information</h3>
-        <h4>Google Advertising ID</h4>
-        <p>We collect your Google Advertising ID as required by our analytics SDK dependencies for app performance monitoring and crash reporting. <strong>We do not use this identifier for serving advertisements or personalized marketing.</strong></p>
+        <h4>Google Advertising ID &mdash; not collected</h4>
+        <p><strong>Contacto does not collect your Google Advertising ID.</strong> Earlier versions of this policy said it did; that was never accurate for the shipped app and it is explicitly prevented now. The <code>AD_ID</code> permission, and the Android 13+ <code>ACCESS_ADSERVICES_AD_ID</code> and <code>ACCESS_ADSERVICES_ATTRIBUTION</code> permissions, are removed from the app manifest, and advertising-identifier collection is switched off in the analytics SDK. We also do not collect the Android ID (SSAID).</p>
+        <p>Where our app-install advertising needs to know that a campaign worked, that is measured by Google Play and Google Ads on their side, using the account link between them. It requires no identifier from your device.</p>
 
         <h4>Audio Settings</h4>
         <ul>
@@ -269,40 +270,53 @@
             <li>Phone account IDs (for SIM detection)</li>
         </ul>
 
-        <h3>1.5 Error Tracking & Analytics Data (Sentry)</h3>
-        <div class="warning">
-            <strong>⚠️ Important: Error Tracking Service</strong><br>
-            To improve app quality and fix bugs, we use Sentry.io, a third-party error tracking service. This service collects technical information including your IP address.
-        </div>
+        <h3>1.5 Diagnostics &amp; Usage Data</h3>
+        <p>Two third-party services receive data from Contacto. Neither of them ever receives your calls, contacts, notes, voice notes or reminders.</p>
 
-        <h4>Automatically Collected Data:</h4>
+        <h4>Sentry &mdash; crash reporting</h4>
+        <p>We use Sentry.io to learn when the app crashes or hits an error. It is <strong>crash-only</strong>: it transmits when something has gone wrong, not on a schedule.</p>
         <ul>
-            <li><strong>IP Addresses:</strong> Your device's IP address is automatically logged when errors are reported</li>
-            <li><strong>Device Information:</strong> Model, OS version, app version, device identifiers</li>
-            <li><strong>Error Logs:</strong> Stack traces and error messages (may include phone numbers or contact names if visible during the error)</li>
-            <li><strong>Crash Reports:</strong> Technical details about app crashes</li>
+            <li><strong>Device information:</strong> model, OS version, app version</li>
+            <li><strong>Error logs:</strong> stack traces and error messages. Messages are passed through a redaction helper that strips anything phone-number-shaped before sending, and the app&rsquo;s logging rules forbid passing contact names, note text or voice-note paths into them</li>
+            <li><strong>Crash reports:</strong> technical details about the failure</li>
         </ul>
-
-        <h4>Session Recordings:</h4>
-        <p>We record user interactions in the following scenarios:</p>
-        <ul>
-            <li><strong>10% of normal app sessions</strong> (randomly selected)</li>
-            <li><strong>100% of sessions where errors occur</strong></li>
-        </ul>
-        <p>Session recordings may capture:</p>
-        <ul>
-            <li>Screen taps, gestures, and navigation patterns</li>
-            <li>Visual content displayed on screen (may include phone numbers, contact names, and call history)</li>
-            <li>User interaction timing and patterns</li>
-        </ul>
-
-        <div class="highlight">
-            <strong>🎯 Purpose:</strong> Session recordings are used exclusively for debugging and improving app performance. We do not use session recordings for advertising, marketing, or any purpose other than technical troubleshooting.
-        </div>
-
         <div class="info-box">
-            <strong>✅ User Control:</strong> You can opt-out of error tracking and session recording at any time in <strong>Settings → Privacy → Error Reporting</strong>. When disabled, no data will be sent to Sentry.
+            <strong>What Sentry does <em>not</em> receive:</strong>
+            <ul>
+                <li><strong>Your IP address.</strong> The SDK option that would attach it (<code>sendDefaultPii</code>) is off.</li>
+                <li><strong>Session recordings.</strong> Session Replay is disabled on every build &mdash; both its sampling rates are zero, so no screen content is ever captured. A previous version of this policy described 10%/100% recording; that is not what the app does.</li>
+                <li><strong>Console output.</strong> Console breadcrumb capture is switched off.</li>
+            </ul>
         </div>
+
+        <h4>Google Analytics for Firebase &mdash; anonymous usage statistics</h4>
+        <p>We use Google Analytics for Firebase to understand how the app is used in aggregate &mdash; for example, how many people complete setup, and how many grant the call-log permission. This tells us where the app is confusing or broken.</p>
+        <p><strong>The payload is deliberately limited to counts, categories and yes/no answers.</strong> The events are a fixed, closed list defined in the app&rsquo;s source, and no event carries free text. They are:</p>
+        <ul>
+            <li>Which onboarding step you reached, and which kind of work you said the app is for</li>
+            <li>Whether you granted, declined, or blocked the call-log and contacts permissions</li>
+            <li>Whether setup completed</li>
+            <li>The <em>size band</em> of your call log on first load (for example &ldquo;10&ndash;49&rdquo;) &mdash; never the calls themselves</li>
+            <li>That you created your first tag, note or voice note &mdash; never its content</li>
+            <li>That a report was exported, and in which file format &mdash; never the report</li>
+            <li>Whether you accepted or declined the default-phone-app prompt, and which in-app missions you completed</li>
+        </ul>
+        <p>Alongside these, Google Analytics records an <strong>app-instance identifier</strong> (a random id that is reset if you reinstall), your device model, OS version, and approximate country.</p>
+        <div class="info-box">
+            <strong>What Google Analytics does <em>not</em> receive:</strong>
+            <ul>
+                <li><strong>Your advertising ID or Android ID.</strong> Both are switched off in the manifest, and the permissions are removed.</li>
+                <li><strong>Ad personalisation, ad storage or ad user-data signals.</strong> All three are set to denied.</li>
+                <li><strong>Automatic screen tracking.</strong> Disabled, so the app does not report which screens you open or how often.</li>
+                <li><strong>Any call, contact, note, reminder or voice note.</strong></li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <strong>&#9989; Your control:</strong> usage statistics can be switched off at any time in <strong>Settings &rarr; Privacy &rarr; Anonymous usage stats</strong>. Turning it off stops collection inside the Google Analytics SDK itself, not merely in our code, so nothing is stored up and sent later.
+        </div>
+
+        <h4>App updates</h4>
+        <p>Contacto checks for over-the-air updates. That check sends a persistent per-installation identifier, your platform, and the app&rsquo;s runtime version, on launch and when the app returns to the foreground. It carries none of your content.</p>
 
         <h2 id="use">2. How We Use Your Information</h2>
 
@@ -349,26 +363,35 @@
             <li><strong>Server Location:</strong> Germany (<code>o4510541538066432.ingest.de.sentry.io</code>)</li>
             <li><strong>Data Sent:</strong>
                 <ul>
-                    <li>User IP addresses</li>
-                    <li>Device identifiers and technical specifications</li>
-                    <li>Error logs (may contain phone numbers or contact names)</li>
-                    <li>Session recordings (screen interactions and visual content)</li>
+                    <li>Device model, OS version and app version</li>
+                    <li>Error logs and stack traces, with phone-number-shaped text redacted before sending</li>
                     <li>User feedback submitted through the app</li>
+                    <li><strong>Not</strong> your IP address, and <strong>not</strong> session recordings — both are disabled</li>
                 </ul>
             </li>
-            <li><strong>Purpose:</strong> Error monitoring, crash reporting, app performance improvement</li>
+            <li><strong>Purpose:</strong> Error monitoring, crash reporting, app stability</li>
             <li><strong>Data Retention:</strong> 90 days, then automatically deleted</li>
-            <li><strong>User Control:</strong> Opt-out via Settings → Privacy → Error Reporting</li>
+            <li><strong>User Control:</strong> crash reporting has no in-app switch. It is limited by design instead — it sends only on failure and carries none of your content.</li>
             <li><strong>Privacy Policy:</strong> <a href="https://sentry.io/privacy/" target="_blank">https://sentry.io/privacy/</a></li>
             <li><strong>Data Processing Agreement:</strong> GDPR-compliant DPA in place</li>
         </ul>
 
+        <h3>Google Analytics for Firebase (Usage Statistics)</h3>
+        <ul>
+            <li><strong>Company:</strong> Google LLC</li>
+            <li><strong>Data Sent:</strong> the fixed list of counts, categories and yes/no events described in section 1.5, plus an app-instance identifier, device model, OS version and approximate country</li>
+            <li><strong>Not Sent:</strong> advertising ID, Android ID (SSAID), ad personalisation or ad-storage signals, screen-view tracking, or any call, contact, note or voice note</li>
+            <li><strong>Purpose:</strong> understanding in aggregate where setup fails and which features are used</li>
+            <li><strong>Data Retention:</strong> 14 months</li>
+            <li><strong>User Control:</strong> Settings → Privacy → Anonymous usage stats</li>
+            <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+        </ul>
+
         <h3>Google Play Services</h3>
         <ul>
-            <li><strong>Advertising ID:</strong> Collected via Google Play Services as required by our analytics SDK dependencies</li>
-            <li><strong>Purpose:</strong> App analytics and error tracking infrastructure (not for serving advertisements)</li>
-            <li><strong>User Control:</strong> You can reset your Advertising ID in Android Settings → Google → Ads</li>
-            <li><strong>Data Sharing:</strong> May be shared with Google as part of Play Services infrastructure</li>
+            <li><strong>Advertising ID:</strong> <strong>Not collected.</strong> The permission is removed from the app manifest and collection is disabled in the analytics SDK</li>
+            <li><strong>Purpose:</strong> Play Services provides the delivery and update infrastructure the app runs on</li>
+            <li><strong>Data Sharing:</strong> Standard Play Services telemetry, governed by Google's own privacy policy</li>
         </ul>
 
         <h3>What We DO NOT Share</h3>
@@ -399,7 +422,7 @@
             <li>Transmission uses HTTPS encryption</li>
             <li>Sent to Germany-based servers (GDPR-compliant)</li>
             <li>Retained for 90 days, then automatically deleted</li>
-            <li>Can be disabled via Settings → Privacy → Error Reporting</li>
+            <li>Can be disabled via Settings → Privacy → Anonymous usage stats</li>
         </ul>
 
         <h3>Security Measures</h3>
@@ -455,21 +478,17 @@
             <li>Permission can be revoked in Android settings</li>
         </ul>
 
-        <h3>Error Tracking Opt-Out</h3>
-        <p>You can disable error tracking and session recording:</p>
+        <h3>Usage Statistics Opt-Out</h3>
+        <p>You can switch off anonymous usage statistics at any time:</p>
         <ol>
-            <li>Open CallMinder</li>
-            <li>Go to <strong>Settings → Privacy → Error Reporting</strong></li>
-            <li>Toggle off "Error Reporting & Analytics"</li>
+            <li>Open Contacto</li>
+            <li>Go to <strong>Settings → Privacy</strong></li>
+            <li>Toggle off <strong>"Anonymous usage stats"</strong></li>
         </ol>
-        <p>When disabled:</p>
-        <ul>
-            <li>✅ No error logs sent to Sentry</li>
-            <li>✅ No session recordings captured</li>
-            <li>✅ No IP addresses transmitted</li>
-            <li>⚠️ App stability monitoring disabled</li>
-        </ul>
-        <p><strong>Note:</strong> Disabling error tracking may make it harder for us to diagnose and fix bugs you encounter.</p>
+        <p>When disabled, collection stops inside the Google Analytics SDK itself — events are not queued up and sent later.</p>
+        <div class="info-box">
+            <strong>An earlier version of this policy described a "Settings → Privacy → Error Reporting" switch. No such switch exists.</strong> Crash reporting is constrained by design instead: it transmits only when the app has actually failed, it carries no IP address and no screen recording, and error text is redacted before it leaves the device. If you would prefer an off switch for it as well, please write to us.
+        </div>
 
         <h3>Data Deletion</h3>
         <ul>
@@ -497,7 +516,7 @@
         </ul>
 
         <h3>Google Play Services</h3>
-        <p>Advertising ID and analytics data processed by Google may be transferred internationally according to Google's privacy policies:</p>
+        <p>Usage-statistics data processed by Google may be transferred internationally according to Google's privacy policies. No advertising identifier is involved:</p>
         <ul>
             <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
         </ul>
@@ -513,7 +532,7 @@
             <li><strong>Right to Restrict Processing:</strong> Request that we limit how we use your data</li>
             <li><strong>Right to Data Portability:</strong> Request a copy of your data in a machine-readable format</li>
             <li><strong>Right to Object:</strong> Object to our processing of your personal data</li>
-            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for data processing at any time (via Settings → Privacy → Error Reporting)</li>
+            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for usage statistics at any time (Settings → Privacy → Anonymous usage stats)</li>
         </ul>
         <p><strong>To exercise these rights</strong>, contact us at <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a> with the subject line "GDPR Data Request."</p>
 
@@ -531,9 +550,9 @@
         <p>Regardless of location, you can:</p>
         <ul>
             <li><strong>Revoke Permissions:</strong> In Android Settings → Apps → CallMinder → Permissions</li>
-            <li><strong>Opt-Out of Error Tracking:</strong> In Settings → Privacy → Error Reporting</li>
+            <li><strong>Control What Is Sent:</strong> Settings → Privacy → Anonymous usage stats (crash reporting has no switch; see section 5)</li>
             <li><strong>Delete Local Data:</strong> By uninstalling the app</li>
-            <li><strong>Reset Advertising ID:</strong> In Android Settings → Google → Ads</li>
+            <li><strong>Turn Off Usage Statistics:</strong> In Settings → Privacy → Anonymous usage stats</li>
             <li><strong>Contact Us:</strong> For any privacy concerns or questions</li>
         </ul>
 
@@ -547,13 +566,18 @@
 
         <h3>External Data (Sentry)</h3>
         <ul>
-            <li><strong>Error Logs & Session Recordings:</strong> Retained for <strong>90 days</strong>, then automatically deleted</li>
+            <li><strong>Error Logs:</strong> Retained for <strong>90 days</strong>, then automatically deleted. There are no session recordings.</li>
             <li><strong>User Feedback:</strong> Retained for <strong>90 days</strong>, then automatically deleted</li>
+        </ul>
+
+        <h3>Usage Statistics (Google Analytics)</h3>
+        <ul>
+            <li><strong>Event data:</strong> Retained for <strong>14 months</strong></li>
         </ul>
 
         <h3>Advertising ID</h3>
         <ul>
-            <li><strong>Google Advertising ID:</strong> Processed by Google Play Services according to Google's retention policies</li>
+            <li><strong>Not collected</strong>, so nothing is retained. See section 1.4.</li>
         </ul>
 
         <h2 id="changes">10. Changes to This Privacy Policy</h2>
@@ -662,36 +686,16 @@
                     <td>During active calls</td>
                 </tr>
                 <tr>
-                    <td><code>AD_ID</code></td>
-                    <td>Access Advertising ID (for analytics SDK)</td>
-                    <td>Automatically (no user prompt)</td>
-                </tr>
+                    <td><code>AD_ID</code> <em>(removed)</em></td>
+                    <td>Not declared. Held out of the merged manifest, together with <code>ACCESS_ADSERVICES_AD_ID</code> and <code>ACCESS_ADSERVICES_ATTRIBUTION</code></td>
+                    <td>Never requested</td>
             </tbody>
         </table>
 
-        <h3>Session Recording Details</h3>
-        <h4>What IS Recorded:</h4>
-        <ul>
-            <li>Button taps and gestures (location, timing)</li>
-            <li>Screen navigation (which screens you visit)</li>
-            <li>Visual content on screen (may include phone numbers and contact names if visible)</li>
-            <li>App performance metrics (load times, responsiveness)</li>
-        </ul>
-
-        <h4>What IS NOT Recorded:</h4>
-        <ul>
-            <li>Text you type (passwords, messages)</li>
-            <li>Content outside the app (other apps, home screen, notifications)</li>
-            <li>Audio from calls or voice notes</li>
-            <li>Photos or media files</li>
-            <li>SMS message content (except template previews)</li>
-        </ul>
-
-        <h4>Recording Rate:</h4>
-        <ul>
-            <li>10% of normal sessions (randomly selected)</li>
-            <li>100% of sessions where errors/crashes occur</li>
-            <li>Can be disabled: Settings → Privacy → Error Reporting</li>
+        <h3>Session Recording</h3>
+        <div class="info-box">
+            <strong>Contacto does not record your screen.</strong> Session Replay is disabled on every build — both of its sampling rates are zero, so no frames are ever captured, masked or uploaded. Version 2.0 of this policy described 10%/100% capture rates and listed what such recordings would contain; that did not match the app and the description has been removed rather than reworded.
+        </div>
         </ul>
 
         <h3>Security & Compliance</h3>
@@ -706,6 +710,18 @@
         <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
 
         <h3>Privacy Policy Change Log</h3>
+
+        <h4>Version 3.0 - August 30, 2026 (Usage Statistics &amp; Disclosure Correction)</h4>
+        <p><strong>Major Changes:</strong></p>
+        <ul>
+            <li>✅ Disclosed Google Analytics for Firebase, the closed list of events it sends, and the Settings → Privacy opt-out</li>
+            <li>✅ <strong>Corrected:</strong> we do <em>not</em> collect the Google Advertising ID. The v2.0 claim that we did was wrong; the permissions are removed from the manifest and collection is disabled in the SDK</li>
+            <li>✅ <strong>Corrected:</strong> Sentry does <em>not</em> receive your IP address. The option that would attach it is off</li>
+            <li>✅ <strong>Corrected:</strong> there are <em>no</em> session recordings. The v2.0 claim of 10%/100% capture rates does not match the app, whose replay sampling is zero on every build</li>
+            <li>✅ <strong>Corrected:</strong> the "Settings → Privacy → Error Reporting" switch described in v2.0 does not exist. The real control is "Anonymous usage stats"</li>
+            <li>✅ Stated that the Android ID (SSAID), ad personalisation, ad storage and automatic screen tracking are all disabled</li>
+            <li>✅ Added 14-month retention for usage statistics</li>
+        </ul>
 
         <h4>Version 2.0 - February 6, 2026 (Default Dialer Update)</h4>
         <p><strong>Major Changes:</strong></p>
