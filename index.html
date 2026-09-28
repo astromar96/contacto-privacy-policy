@@ -176,8 +176,8 @@
         <h1>Privacy Policy</h1>
         <p class="app-name">CallMinder (Contacto)</p>
         <p class="version-info">
-            <strong>Last Updated:</strong> August 30, 2026<br>
-            <strong>Version:</strong> 3.0 (Usage Statistics &amp; Disclosure Correction)
+            <strong>Last Updated:</strong> September 28, 2026<br>
+            <strong>Version:</strong> 4.0 (Ads in Recents)
         </p>
 
         <div class="highlight">
@@ -253,8 +253,9 @@
         <p><strong>User Control:</strong> You must grant SMS permission and manually select when to send messages. We do not read or access your incoming SMS messages.</p>
 
         <h3>1.4 Device & Technical Information</h3>
-        <h4>Google Advertising ID &mdash; not collected</h4>
-        <p><strong>Contacto does not collect your Google Advertising ID.</strong> Earlier versions of this policy said it did; that was never accurate for the shipped app and it is explicitly prevented now. The <code>AD_ID</code> permission, and the Android 13+ <code>ACCESS_ADSERVICES_AD_ID</code> and <code>ACCESS_ADSERVICES_ATTRIBUTION</code> permissions, are removed from the app manifest, and advertising-identifier collection is switched off in the analytics SDK. We also do not collect the Android ID (SSAID).</p>
+        <h4>Google Advertising ID: collected by the ads SDK, from version 2.1.0</h4>
+        <p>From version 2.1.0, Contacto shows one ad, in Recents, served by Google AdMob. The Google Mobile Ads SDK that shows it reads your device's advertising ID, and the app declares the permissions it needs for that: <code>AD_ID</code> and, on Android 13 and later, <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code>. You can reset or delete your advertising ID at any time in Android's settings (Settings → Privacy → Ads, or Settings → Google → Ads on some phones).</p>
+        <p>Our usage statistics still never read it: advertising-ID collection stays switched off in the analytics SDK. We do not collect the Android ID (SSAID).</p>
         <p>Where our app-install advertising needs to know that a campaign worked, that is measured by Google Play and Google Ads on their side, using the account link between them. It requires no identifier from your device.</p>
 
         <h4>Audio Settings</h4>
@@ -271,7 +272,7 @@
         </ul>
 
         <h3>1.5 Diagnostics &amp; Usage Data</h3>
-        <p>Two third-party services receive data from Contacto. Neither of them ever receives your calls, contacts, notes, voice notes or reminders.</p>
+        <p>Three third-party services receive data from Contacto, besides the update check described below. None of them ever receives your calls, contacts, notes, voice notes or reminders.</p>
 
         <h4>Sentry &mdash; crash reporting</h4>
         <p>We use Sentry.io to learn when the app crashes or hits an error. It is <strong>crash-only</strong>: it transmits when something has gone wrong, not on a schedule.</p>
@@ -305,7 +306,7 @@
         <div class="info-box">
             <strong>What Google Analytics does <em>not</em> receive:</strong>
             <ul>
-                <li><strong>Your advertising ID or Android ID.</strong> Both are switched off in the manifest, and the permissions are removed.</li>
+                <li><strong>Your advertising ID or Android ID.</strong> Collection of both is switched off in the analytics SDK.</li>
                 <li><strong>Ad personalisation, ad storage or ad user-data signals.</strong> All three are set to denied.</li>
                 <li><strong>Automatic screen tracking.</strong> Disabled, so the app does not report which screens you open or how often.</li>
                 <li><strong>Any call, contact, note, reminder or voice note.</strong></li>
@@ -314,6 +315,22 @@
         <div class="info-box">
             <strong>&#9989; Your control:</strong> usage statistics can be switched off at any time in <strong>Settings &rarr; Privacy &rarr; Anonymous usage stats</strong>. Turning it off stops collection inside the Google Analytics SDK itself, not merely in our code, so nothing is stored up and sent later.
         </div>
+
+        <h4>Google AdMob: one ad in Recents</h4>
+        <p>From version 2.1.0, Recents shows one ad among your calls, marked "Ad". No other screen shows one: not the Helper, not a call screen, not a notification. The ad doesn't appear until you have written your first note or label, and never during a call.</p>
+        <p>To show and measure it, the Google Mobile Ads SDK automatically collects and shares with Google, for advertising, analytics and fraud prevention:</p>
+        <ul>
+            <li>your device's IP address, which may be used to estimate its general location;</li>
+            <li>your interactions with the ad and the app, including app launch, taps and video views;</li>
+            <li>diagnostics, including app launch time, hang rate and energy usage;</li>
+            <li>your advertising ID, app set ID and, if applicable, other identifiers related to signed-in accounts.</li>
+        </ul>
+        <p>All of it is encrypted in transit.</p>
+        <div class="info-box">
+            <strong>What an ad request never carries:</strong> your calls, contacts, notes, reminders, voice notes or labels. The app sends no keywords, no content address and no custom targeting with it. Google Play's rules forbid using call-log data for advertising, and Contacto doesn't.
+        </div>
+        <p>Ads are limited to content suitable for all audiences (Google's "G" rating).</p>
+        <p>How Google uses this information: <a href="https://policies.google.com/technologies/partner-sites" target="_blank">https://policies.google.com/technologies/partner-sites</a></p>
 
         <h4>App updates</h4>
         <p>Contacto checks for over-the-air updates. That check sends a persistent per-installation identifier, your platform, and the app&rsquo;s runtime version, on launch and when the app returns to the foreground. It carries none of your content.</p>
@@ -387,9 +404,20 @@
             <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
         </ul>
 
+        <h3>Google AdMob (Advertising)</h3>
+        <ul>
+            <li><strong>Company:</strong> Google LLC</li>
+            <li><strong>Data Sent:</strong> IP address, ad and app interactions, diagnostics, and the advertising ID and app set ID, as section 1.5 lists them</li>
+            <li><strong>Not Sent:</strong> any call, contact, note, reminder, voice note or label</li>
+            <li><strong>Purpose:</strong> showing the ad in Recents, measuring it, and preventing fraud</li>
+            <li><strong>User Control:</strong> your advertising ID in Android's settings, and, where the law requires it, Google's consent form (section 5)</li>
+            <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
+            <li><strong>How Google uses the data:</strong> <a href="https://policies.google.com/technologies/partner-sites" target="_blank">https://policies.google.com/technologies/partner-sites</a></li>
+        </ul>
+
         <h3>Google Play Services</h3>
         <ul>
-            <li><strong>Advertising ID:</strong> <strong>Not collected.</strong> The permission is removed from the app manifest and collection is disabled in the analytics SDK</li>
+            <li><strong>Advertising ID:</strong> read by the Google Mobile Ads SDK for the ad in Recents (see Google AdMob above). Our usage statistics don't read it.</li>
             <li><strong>Purpose:</strong> Play Services provides the delivery and update infrastructure the app runs on</li>
             <li><strong>Data Sharing:</strong> Standard Play Services telemetry, governed by Google's own privacy policy</li>
         </ul>
@@ -402,9 +430,10 @@
                 <li>✅ <strong>SMS Messages:</strong> Never transmitted to external servers (sent directly to recipients)</li>
                 <li>✅ <strong>Voice Notes:</strong> Never transmitted to external servers (stored locally only)</li>
                 <li>✅ <strong>Tags & Notes:</strong> Never transmitted to external servers (stored locally only)</li>
+                <li>✅ <strong>Ad requests:</strong> carry no call, contact, note, reminder, voice note or label</li>
             </ul>
         </div>
-        <p><strong>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</strong></p>
+        <p><strong>We do not sell, rent or trade your personal information. The ads SDK shares the device information above with Google so that the ad can be shown and measured.</strong></p>
 
         <h2 id="storage">4. Data Storage & Security</h2>
 
@@ -417,13 +446,7 @@
         </ul>
 
         <h3>External Data Transmission</h3>
-        <p>The only data transmitted externally is error tracking and analytics data sent to Sentry.io:</p>
-        <ul>
-            <li>Transmission uses HTTPS encryption</li>
-            <li>Sent to Germany-based servers (GDPR-compliant)</li>
-            <li>Retained for 90 days, then automatically deleted</li>
-            <li>Can be disabled via Settings → Privacy → Anonymous usage stats</li>
-        </ul>
+        <p>Data leaves your device in four ways: crash reports to Sentry.io, anonymous usage statistics to Google Analytics for Firebase, the ad requests of the Google Mobile Ads SDK, and the update check (section 1.5). None of them carries your calls, contacts, notes, reminders or voice notes. All four use HTTPS.</p>
 
         <h3>Security Measures</h3>
         <h4>Technical Safeguards:</h4>
@@ -454,7 +477,7 @@
         <p>You have full control over app permissions:</p>
         <ul>
             <li><strong>Runtime Permissions:</strong> All sensitive permissions (calls, contacts, SMS, audio) are requested when first needed</li>
-            <li><strong>Revoke Permissions:</strong> Disable any permission in Android Settings → Apps → CallMinder → Permissions</li>
+            <li><strong>Revoke Permissions:</strong> Disable any permission in Android Settings → Apps → Contacto → Permissions</li>
             <li><strong>Granular Control:</strong> Enable only the permissions needed for features you want to use</li>
         </ul>
 
@@ -490,6 +513,14 @@
             <strong>An earlier version of this policy described a "Settings → Privacy → Error Reporting" switch. No such switch exists.</strong> Crash reporting is constrained by design instead: it transmits only when the app has actually failed, it carries no IP address and no screen recording, and error text is redacted before it leaves the device. If you would prefer an off switch for it as well, please write to us.
         </div>
 
+        <h3>Ads and your consent</h3>
+        <ul>
+            <li><strong>In the European Economic Area, the United Kingdom and Switzerland,</strong> Google's consent form asks you once, when Contacto opens after your first note or label, how your data may be used for ads. It is Google's own form, certified for this purpose. It's in English on phones set to Arabic, because Google doesn't offer it in Arabic.</li>
+            <li><strong>To change your answer,</strong> open Settings → Privacy → Ad privacy in Contacto. The row appears wherever Google's form requires a way back to it.</li>
+            <li><strong>Everywhere,</strong> you can reset or delete your advertising ID, or opt out of ad personalisation, in Android's settings (Settings → Privacy → Ads).</li>
+            <li>"Anonymous usage stats" governs usage statistics only. Ads have their own controls, above.</li>
+        </ul>
+
         <h3>Data Deletion</h3>
         <ul>
             <li><strong>Local Data:</strong> Uninstalling the app permanently deletes all locally stored data (call logs, notes, tags, voice recordings)</li>
@@ -516,7 +547,7 @@
         </ul>
 
         <h3>Google Play Services</h3>
-        <p>Usage-statistics data processed by Google may be transferred internationally according to Google's privacy policies. No advertising identifier is involved:</p>
+        <p>Usage statistics and ad data processed by Google may be transferred internationally according to Google's privacy policies:</p>
         <ul>
             <li><strong>Google Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
         </ul>
@@ -532,7 +563,7 @@
             <li><strong>Right to Restrict Processing:</strong> Request that we limit how we use your data</li>
             <li><strong>Right to Data Portability:</strong> Request a copy of your data in a machine-readable format</li>
             <li><strong>Right to Object:</strong> Object to our processing of your personal data</li>
-            <li><strong>Right to Withdraw Consent:</strong> Withdraw consent for usage statistics at any time (Settings → Privacy → Anonymous usage stats)</li>
+            <li><strong>Right to Withdraw Consent:</strong> withdraw consent for usage statistics (Settings → Privacy → Anonymous usage stats) and for ads (Settings → Privacy → Ad privacy) at any time.</li>
         </ul>
         <p><strong>To exercise these rights</strong>, contact us at <a href="mailto:contactoapphelp@gmail.com">contactoapphelp@gmail.com</a> with the subject line "GDPR Data Request."</p>
 
@@ -549,7 +580,7 @@
         <h3>For All Users</h3>
         <p>Regardless of location, you can:</p>
         <ul>
-            <li><strong>Revoke Permissions:</strong> In Android Settings → Apps → CallMinder → Permissions</li>
+            <li><strong>Revoke Permissions:</strong> In Android Settings → Apps → Contacto → Permissions</li>
             <li><strong>Control What Is Sent:</strong> Settings → Privacy → Anonymous usage stats (crash reporting has no switch; see section 5)</li>
             <li><strong>Delete Local Data:</strong> By uninstalling the app</li>
             <li><strong>Turn Off Usage Statistics:</strong> In Settings → Privacy → Anonymous usage stats</li>
@@ -577,7 +608,7 @@
 
         <h3>Advertising ID</h3>
         <ul>
-            <li><strong>Not collected</strong>, so nothing is retained. See section 1.4.</li>
+            <li>Held by Google under its privacy policy, not by us. Reset or delete it in Android's settings.</li>
         </ul>
 
         <h2 id="changes">10. Changes to This Privacy Policy</h2>
@@ -686,9 +717,10 @@
                     <td>During active calls</td>
                 </tr>
                 <tr>
-                    <td><code>AD_ID</code> <em>(removed)</em></td>
-                    <td>Not declared. Held out of the merged manifest, together with <code>ACCESS_ADSERVICES_AD_ID</code> and <code>ACCESS_ADSERVICES_ATTRIBUTION</code></td>
-                    <td>Never requested</td>
+                    <td><code>AD_ID</code>, <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code>, <code>ACCESS_ADSERVICES_TOPICS</code></td>
+                    <td>Let the Google Mobile Ads SDK read the advertising ID for the ad in Recents</td>
+                    <td>Never requested: Android grants them at install</td>
+                </tr>
             </tbody>
         </table>
 
@@ -696,13 +728,12 @@
         <div class="info-box">
             <strong>Contacto does not record your screen.</strong> Session Replay is disabled on every build — both of its sampling rates are zero, so no frames are ever captured, masked or uploaded. Version 2.0 of this policy described 10%/100% capture rates and listed what such recordings would contain; that did not match the app and the description has been removed rather than reworded.
         </div>
-        </ul>
 
         <h3>Security & Compliance</h3>
         <ul>
             <li><strong>HTTPS Encryption:</strong> All external data transmission uses TLS 1.2 or higher</li>
             <li><strong>GDPR Compliant:</strong> Data processing agreements in place with Sentry.io</li>
-            <li><strong>CCPA Compliant:</strong> We do not sell personal information</li>
+            <li><strong>CCPA:</strong> We do not sell personal information. The ads SDK shares device information with Google to show and measure the ad in Recents (section 3).</li>
             <li><strong>COPPA Compliant:</strong> No data collection from children under 13</li>
             <li><strong>Android Security:</strong> Local data encrypted at OS level (Android 6.0+)</li>
         </ul>
@@ -710,6 +741,14 @@
         <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
 
         <h3>Privacy Policy Change Log</h3>
+
+        <h4>Version 4.0 - September 28, 2026 (Ads in Recents)</h4>
+        <p><strong>Major Changes:</strong></p>
+        <ul>
+            <li>✅ Disclosed Google AdMob: one ad in Recents from version 2.1.0, what the Google Mobile Ads SDK collects and shares, and that ad requests carry none of your calls, contacts or notes</li>
+            <li>✅ The advertising ID is now read by the ads SDK, and its permissions are declared. Version 3.0's "not collected" described the app before 2.1.0</li>
+            <li>✅ Added the ad controls: Google's consent form where the law requires it, Settings → Privacy → Ad privacy, and resetting the advertising ID in Android</li>
+        </ul>
 
         <h4>Version 3.0 - August 30, 2026 (Usage Statistics &amp; Disclosure Correction)</h4>
         <p><strong>Major Changes:</strong></p>
@@ -759,7 +798,7 @@
 
         <p style="text-align: center; color: #888; margin-top: 40px; font-size: 0.9em;">
             <em>This privacy policy was generated to comply with GDPR, CCPA, COPPA, and Google Play Store requirements.<br>
-            Last reviewed and updated: February 6, 2026</em>
+            Last reviewed and updated: September 28, 2026</em>
         </p>
     </div>
 </body>
