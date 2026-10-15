@@ -176,8 +176,8 @@
         <h1>Privacy Policy</h1>
         <p class="app-name">CallMinder (Contacto)</p>
         <p class="version-info">
-            <strong>Last Updated:</strong> October 1, 2026<br>
-            <strong>Version:</strong> 5.0 (No ads from 2.2.1)
+            <strong>Last Updated:</strong> October 16, 2026<br>
+            <strong>Version:</strong> 6.0 (Phone numbers and email addresses that reach other apps and services)
         </p>
 
         <div class="highlight">
@@ -235,22 +235,28 @@
         <ul>
             <li><strong>Contact Names:</strong> Display names from your device address book</li>
             <li><strong>Phone Numbers:</strong> Associated phone numbers for each contact</li>
+            <li><strong>Email Addresses:</strong> The email addresses saved on a contact, so they can be shown on that contact and opened in your email app</li>
+            <li><strong>Organisation:</strong> The company or job title saved on a contact, where there is one</li>
             <li><strong>Contact Photos:</strong> Photo URIs (references to photos, not the actual photo data)</li>
             <li><strong>Contact IDs:</strong> Internal identifiers used by Android</li>
         </ul>
+        <p><strong>Editing:</strong> Contacto can also create a contact and edit an existing one, which writes names, numbers, email addresses and the other fields above back into your Android address book. That write stays on your device.</p>
         <p><strong>Scope:</strong> The app reads all device contacts and maintains an in-memory cache of up to 1,000 contacts for quick lookup.</p>
         <div class="info-box">
-            <strong>💾 Data Storage:</strong> Contact information is cached in device memory during app use and is never transmitted to external servers.
+            <strong>💾 Data Storage:</strong> Contact information is cached in device memory during app use and is never uploaded &mdash; Contacto has no server to upload it to. The one exception is deliberate and yours: when you tap a contact&rsquo;s email address or its WhatsApp button, that single address or number is handed to the app that opens. Section 3 lists each of those hand-offs.
         </div>
 
-        <h3>1.3 SMS Messages</h3>
-        <p>When you use the quick reply feature during calls:</p>
+        <h3>1.3 SMS &amp; MMS Messages</h3>
+        <p>Contacto shows your text conversations next to your calls, and can send messages. Earlier versions only sent quick replies; from version 2.4.0 the app also reads your messages in order to display them.</p>
         <ul>
-            <li><strong>Outgoing SMS:</strong> We send SMS messages on your behalf</li>
-            <li><strong>Message Content:</strong> Only predefined template messages (e.g., "Can't talk right now. I'll call you back," "I'm in a meeting")</li>
-            <li><strong>Recipient Numbers:</strong> Phone numbers you choose to send quick replies to</li>
+            <li><strong>Reading your conversations:</strong> The app reads SMS and MMS messages &mdash; sender and recipient numbers, message text, attachments and timestamps &mdash; from the messages store Android already keeps on your phone, so it can list your threads and show a conversation.</li>
+            <li><strong>Outgoing messages:</strong> Messages you write in the app, and quick replies during a call, are sent on your behalf to the number you chose.</li>
+            <li><strong>Incoming messages:</strong> If you make Contacto your default SMS app, Android delivers incoming messages to it, and the app writes them into that same Android messages store and can notify you about them.</li>
         </ul>
-        <p><strong>User Control:</strong> You must grant SMS permission and manually select when to send messages. We do not read or access your incoming SMS messages.</p>
+        <div class="info-box">
+            <strong>Contacto keeps no copy.</strong> Android&rsquo;s own messages store stays the one place your messages live. The app reads from it to draw a screen and writes to it when a message is sent or received &mdash; it does not keep a second database of your messages, and <strong>it never transmits them to us or to any third-party service</strong>. A message you send travels over your carrier&rsquo;s network to the recipient, like any SMS.
+        </div>
+        <p><strong>User Control:</strong> Reading and sending both require the SMS permissions, which you grant, and you choose when to send. Receiving requires you to make Contacto your default SMS app, which is optional &mdash; the app works without it.</p>
 
         <h3>1.4 Device & Technical Information</h3>
         <h4>Google Advertising ID: not collected, from version 2.2.1</h4>
@@ -278,7 +284,7 @@
         <p>We use Sentry.io to learn when the app crashes or hits an error. It is <strong>crash-only</strong>: it transmits when something has gone wrong, not on a schedule.</p>
         <ul>
             <li><strong>Device information:</strong> model, OS version, app version</li>
-            <li><strong>Error logs:</strong> stack traces and error messages. Messages are passed through a redaction helper that strips anything phone-number-shaped before sending, and the app&rsquo;s logging rules forbid passing contact names, note text or voice-note paths into them</li>
+            <li><strong>Error logs:</strong> stack traces and error messages. <strong>An error message can contain a phone number.</strong> Android builds some of them itself &mdash; a failure to open a dialling link reads <code>Unable to open URL: tel:+20&hellip;</code> &mdash; so the number is inside the text of the error, not something the app chose to send. Where the app writes the message itself it strips phone-number-shaped text first, and its logging rules forbid putting contact names, note text or voice-note paths into one. The next version after 2.4.1 strips every report on the way out, whoever wrote the message; up to and including 2.4.1 that last step is missing, which is why this policy and our Google Play Data safety form both disclose phone numbers as data that leaves the device</li>
             <li><strong>Crash reports:</strong> technical details about the failure</li>
         </ul>
         <div class="info-box">
@@ -363,7 +369,7 @@
             <li>Improve user experience based on interaction patterns</li>
             <li>Respond to user feedback and feature requests</li>
         </ul>
-        <p><strong>Note:</strong> Error tracking data sent to Sentry may contain phone numbers or contact names if they were visible on screen when an error occurred.</p>
+        <p><strong>Note:</strong> Error tracking data sent to Sentry can contain a phone number, when the number is part of the error message itself. Section 1.5 explains when that happens and what is stripped. It does not carry your notes, reminders, voice notes or call history.</p>
 
         <h3>Voice Notes</h3>
         <ul>
@@ -381,11 +387,11 @@
             <li><strong>Data Sent:</strong>
                 <ul>
                     <li>Device model, OS version and app version</li>
-                    <li>Error logs and stack traces, with phone-number-shaped text redacted before sending</li>
-                    <li>User feedback submitted through the app</li>
+                    <li>Error logs and stack traces, which can contain a phone number when the number is part of the error message (section 1.5)</li>
                     <li><strong>Not</strong> your IP address, and <strong>not</strong> session recordings — both are disabled</li>
                 </ul>
             </li>
+            <li><strong>Feedback widget:</strong> the Sentry SDK ships one, but no screen in Contacto opens it, so no name, email address or message is ever submitted through it</li>
             <li><strong>Purpose:</strong> Error monitoring, crash reporting, app stability</li>
             <li><strong>Data Retention:</strong> 90 days, then automatically deleted</li>
             <li><strong>User Control:</strong> crash reporting has no in-app switch. It is limited by design instead — it sends only on failure and carries none of your content.</li>
@@ -422,18 +428,44 @@
             <li><strong>Data Sharing:</strong> Standard Play Services telemetry, governed by Google's own privacy policy</li>
         </ul>
 
+        <h3>Apps and services you hand a number or an address to</h3>
+        <p>Contacto has no server of its own, so it cannot send your contacts anywhere. What it does do, when you tap one of its buttons, is hand a single phone number or email address to whatever app or service handles it. That is still your data leaving Contacto, so it is listed here.</p>
+        <ul>
+            <li><strong>WhatsApp &mdash; a phone number.</strong> Tapping WhatsApp on a contact or a call opens a chat with that number. If WhatsApp is installed, the number goes to the WhatsApp app on your phone. If it is not, Contacto falls back to opening <code>https://wa.me/&lt;number&gt;</code> in your browser, and <strong>the number is then part of a web address sent to Meta&rsquo;s servers</strong>. This is the one hand-off that leaves your device even when you have no WhatsApp account.</li>
+            <li><strong>Your mobile network &mdash; a phone number and the message.</strong> Sending an SMS from Contacto, including a quick reply during a call, passes the recipient&rsquo;s number and the text of the message to Android&rsquo;s SMS service, which transmits both over your carrier&rsquo;s network to the recipient. That is how any SMS works; it is not a copy to us. We never receive it.</li>
+            <li><strong>Your email app &mdash; an email address.</strong> Tapping an email address on a contact opens a new message in whichever email app you use, with that address already filled in. The address goes to that app. If that app is a webmail client, the address reaches that provider when the message is sent.</li>
+            <li><strong>Your phone app &mdash; a phone number.</strong> Placing a call hands the number to Android&rsquo;s telephony service, and from there to your carrier, which is how the call is connected.</li>
+        </ul>
+        <div class="info-box">
+            <strong>What this does and does not mean:</strong>
+            <ul>
+                <li>Each hand-off carries <strong>one number or one address</strong> &mdash; the one you tapped. Your contact list, call history and notes are never included.</li>
+                <li>Nothing is handed over in the background. Every one of these happens because you tapped a button, and only then.</li>
+                <li>We do not receive a copy. Contacto is not a party to the message, the call or the email.</li>
+                <li>Once the data reaches the other app or service, that company&rsquo;s privacy policy governs it, not ours.</li>
+            </ul>
+        </div>
+
         <h3>What We DO NOT Share</h3>
         <div class="highlight">
             <ul>
                 <li>✅ <strong>Call Logs:</strong> Never transmitted to external servers (stored locally only)</li>
-                <li>✅ <strong>Contacts:</strong> Never transmitted to external servers (stored locally only)</li>
-                <li>✅ <strong>SMS Messages:</strong> Never transmitted to external servers (sent directly to recipients)</li>
+                <li>✅ <strong>Contacts:</strong> Your address book is never uploaded. The single address or number you tap is handed to the app that opens, as described just above</li>
+                <li>✅ <strong>SMS Messages:</strong> Never transmitted to our servers or to any third-party service. A message you send travels over your carrier&rsquo;s network to the recipient, like any SMS</li>
                 <li>✅ <strong>Voice Notes:</strong> Never transmitted to external servers (stored locally only)</li>
                 <li>✅ <strong>Tags & Notes:</strong> Never transmitted to external servers (stored locally only)</li>
                 <li>✅ <strong>Ad requests (versions 2.1.0 to 2.2.0):</strong> carry no call, contact, note, reminder, voice note or label. Version 2.2.1 makes none</li>
             </ul>
         </div>
         <p><strong>We do not sell, rent or trade your personal information. In versions 2.1.0 to 2.2.0, the ads SDK shares the device information above with Google so that the ad can be shown and measured.</strong></p>
+
+        <h3>What our Google Play Data safety form says</h3>
+        <p>Google Play asks every app to declare the same facts in a fixed form, shown on the store listing. Ours has to agree with this policy, so here it is in full. Under <strong>Personal info</strong> we declare:</p>
+        <ul>
+            <li><strong>Phone number</strong> &mdash; collected and shared, not processed ephemerally, required. &ldquo;Required&rdquo; because crash reporting has no in-app switch, unlike usage statistics, and an error message can carry a number (section 1.5). Purposes: app functionality and analytics.</li>
+            <li><strong>Email address</strong> &mdash; collected and shared, not processed ephemerally, optional. &ldquo;Optional&rdquo; because it only ever leaves when you tap an address to open it. Purpose: app functionality.</li>
+        </ul>
+        <p>We also declare approximate location, app interactions, crash logs and diagnostics, and device identifiers, as sections 1.4 and 1.5 describe. <strong>Declaring a data type means it can leave your device, not that we hold it.</strong> We have no server and keep no copy of your numbers, addresses, messages, calls or notes.</p>
 
         <h2 id="storage">4. Data Storage & Security</h2>
 
@@ -446,7 +478,8 @@
         </ul>
 
         <h3>External Data Transmission</h3>
-        <p>Data leaves your device in three ways: crash reports to Sentry.io, anonymous usage statistics to Google Analytics for Firebase, and the update check (section 1.5). Versions 2.1.0 to 2.2.0 add a fourth, the ad requests of the Google Mobile Ads SDK. None of them carries your calls, contacts, notes, reminders or voice notes. All of them use HTTPS.</p>
+        <p>Data leaves your device on its own in three ways: crash reports to Sentry.io, anonymous usage statistics to Google Analytics for Firebase, and the update check (section 1.5). Versions 2.1.0 to 2.2.0 add a fourth, the ad requests of the Google Mobile Ads SDK. None of them carries your calls, contacts, notes, reminders or voice notes. All of them use HTTPS.</p>
+        <p>Separately, and only when you tap a button to do it, Contacto hands a single phone number or email address to another app or service &mdash; WhatsApp, your messaging app, your email app, or your carrier. Section 3, &ldquo;Apps and services you hand a number or an address to&rdquo;, lists each one. The <code>wa.me</code> fallback is the only one of those that reaches a server by itself.</p>
 
         <h3>Security Measures</h3>
         <h4>Technical Safeguards:</h4>
@@ -662,68 +695,105 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><code>CALL_PHONE</code></td>
-                    <td>Make phone calls directly from the app</td>
-                    <td>First time you tap a number to call</td>
-                </tr>
-                <tr>
-                    <td><code>ANSWER_PHONE_CALLS</code></td>
-                    <td>Answer incoming calls programmatically</td>
-                    <td>When you enable advanced call features</td>
-                </tr>
-                <tr>
-                    <td><code>MANAGE_OWN_CALLS</code></td>
-                    <td>Manage call states and display in-call UI</td>
-                    <td>First call placed through app</td>
-                </tr>
-                <tr>
-                    <td><code>READ_CALL_LOG</code></td>
-                    <td>Access call history for display and analytics</td>
-                    <td>App first launch</td>
-                </tr>
-                <tr>
-                    <td><code>READ_PHONE_STATE</code></td>
-                    <td>Monitor phone state changes</td>
-                    <td>When dialer features are used</td>
-                </tr>
-                <tr>
-                    <td><code>SEND_SMS</code></td>
-                    <td>Send quick reply text messages</td>
-                    <td>First time you use quick reply feature</td>
-                </tr>
-                <tr>
-                    <td><code>READ_CONTACTS</code></td>
-                    <td>Display contact names with phone numbers</td>
-                    <td>App first launch</td>
-                </tr>
-                <tr>
-                    <td><code>READ_EXTERNAL_STORAGE</code></td>
-                    <td>Access system ringtones</td>
-                    <td>First time ringtone feature is used</td>
-                </tr>
-                <tr>
-                    <td><code>WRITE_EXTERNAL_STORAGE</code></td>
-                    <td>Store voice notes</td>
-                    <td>First time you record a voice note</td>
-                </tr>
-                <tr>
-                    <td><code>RECORD_AUDIO</code></td>
-                    <td>Record voice notes (NOT for call recording)</td>
-                    <td>First time you record a voice note</td>
-                </tr>
-                <tr>
-                    <td><code>MODIFY_AUDIO_SETTINGS</code></td>
-                    <td>Control call audio and ringtones</td>
-                    <td>During active calls</td>
-                </tr>
-                <tr>
-                    <td><code>AD_ID</code> (removed from version 2.2.1)</td>
-                    <td>Not declared from 2.2.1: held out of the merged manifest, together with <code>ACCESS_ADSERVICES_AD_ID</code> and <code>ACCESS_ADSERVICES_ATTRIBUTION</code>. Versions 2.1.0 to 2.2.0 declared them, and <code>ACCESS_ADSERVICES_TOPICS</code>, for the ad in Recents</td>
-                    <td>Never requested</td>
-                </tr>
-            </tbody>
+                    <tr>
+                        <td><code>CALL_PHONE</code></td>
+                        <td>Place a call from the dialer, a contact or your call history</td>
+                        <td>First time you tap a number to call</td>
+                    </tr>
+                    <tr>
+                        <td><code>ANSWER_PHONE_CALLS</code></td>
+                        <td>Answer or reject an incoming call from the app</td>
+                        <td>When you make Contacto your default phone app</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_PHONE_STATE</code></td>
+                        <td>Know when a call starts, rings and ends, so the Helper and the after-call card can appear</td>
+                        <td>When you turn on the Helper</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_CALL_LOG</code></td>
+                        <td>Show your call history, and group and search it</td>
+                        <td>After you are offered the default phone app role</td>
+                    </tr>
+                    <tr>
+                        <td><code>WRITE_CALL_LOG</code></td>
+                        <td>Keep the call history correct when the app is your default phone app &mdash; for example marking a missed call as seen</td>
+                        <td>Together with <code>READ_CALL_LOG</code></td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_CONTACTS</code></td>
+                        <td>Show a caller&rsquo;s name instead of a bare number, and power search</td>
+                        <td>The first time a screen needs a name, where you are asked in context</td>
+                    </tr>
+                    <tr>
+                        <td><code>WRITE_CONTACTS</code></td>
+                        <td>Save a new contact, or edit one, from inside the app</td>
+                        <td>When you save or edit a contact</td>
+                    </tr>
+                    <tr>
+                        <td><code>SEND_SMS</code></td>
+                        <td>Send a message you wrote, and quick replies during a call</td>
+                        <td>The first time you send a message</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_SMS</code></td>
+                        <td>Read your existing SMS and MMS conversations from Android&rsquo;s messages store so the app can show them (section 1.3)</td>
+                        <td>The first time you open Messages</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECEIVE_SMS</code></td>
+                        <td>Receive incoming messages when Contacto is your default SMS app, and write them into Android&rsquo;s messages store</td>
+                        <td>Only if you make Contacto your default SMS app</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECEIVE_MMS</code></td>
+                        <td>The same, for picture and group messages</td>
+                        <td>Only if you make Contacto your default SMS app</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECEIVE_WAP_PUSH</code></td>
+                        <td>Required by Android of any default SMS app &mdash; it is how an MMS is delivered</td>
+                        <td>Only if you make Contacto your default SMS app</td>
+                    </tr>
+                    <tr>
+                        <td><code>READ_CELL_BROADCASTS</code></td>
+                        <td>Required by Android of any default SMS app, for emergency alert messages</td>
+                        <td>Only if you make Contacto your default SMS app</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECORD_AUDIO</code></td>
+                        <td>Record a voice note. <strong>Never used to record a call</strong></td>
+                        <td>First time you record a voice note</td>
+                    </tr>
+                    <tr>
+                        <td><code>MODIFY_AUDIO_SETTINGS</code></td>
+                        <td>Switch a call to loudspeaker, and control ringtone audio</td>
+                        <td>During an active call</td>
+                    </tr>
+                    <tr>
+                        <td><code>SYSTEM_ALERT_WINDOW</code></td>
+                        <td>Draw the Helper over other apps during and after a call</td>
+                        <td>When you turn on the Helper</td>
+                    </tr>
+                    <tr>
+                        <td><code>POST_NOTIFICATIONS</code></td>
+                        <td>Show call, message and reminder notifications</td>
+                        <td>On first launch, on Android 13 and newer</td>
+                    </tr>
+                    <tr>
+                        <td><code>USE_FULL_SCREEN_INTENT</code></td>
+                        <td>Show the incoming-call screen when the phone is locked</td>
+                        <td>Granted at install</td>
+                    </tr>
+                    <tr>
+                        <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+                        <td>Restore your reminders after the phone restarts</td>
+                        <td>Granted at install</td>
+                    </tr>
+                    </tbody>
         </table>
+        <p>Contacto also declares a few permissions Android does not prompt for: <code>INTERNET</code> (crash reports, usage statistics and the update check), <code>VIBRATE</code>, and the foreground-service permissions that keep work alive while it is running: <code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_PHONE_CALL</code> (call handling), <code>FOREGROUND_SERVICE_MICROPHONE</code> (recording a voice note) and <code>FOREGROUND_SERVICE_SPECIAL_USE</code> (the Helper overlay).</p>
+        <p><strong>Removed:</strong> <code>AD_ID</code>, <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code> and <code>ACCESS_ADSERVICES_TOPICS</code> were declared by versions 2.1.0 to 2.2.0 for the ad in Recents. Version 2.2.1 removed the ad and all four permissions; they are held out of the merged manifest and never requested. <code>READ_EXTERNAL_STORAGE</code> and <code>WRITE_EXTERNAL_STORAGE</code> are likewise held out and never requested &mdash; earlier versions of this policy listed them in error.</p>
 
         <h3>Session Recording</h3>
         <div class="info-box">
